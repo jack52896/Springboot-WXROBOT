@@ -64,6 +64,7 @@ public class WXScheduling {
             JSONObject jsonObject = new JSONObject();
             JSONObject contentObject = new JSONObject();
             contentObject.put("content", msg);
+            contentObject.put("mentioned_mobile_list", "@all");
             jsonObject.put("msgtype", "text");
             jsonObject.put("text", contentObject);
             StringEntity stringEntity = new StringEntity(jsonObject.toString(), "utf-8");

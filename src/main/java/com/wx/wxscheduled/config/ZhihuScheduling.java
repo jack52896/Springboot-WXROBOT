@@ -10,7 +10,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
@@ -29,11 +27,11 @@ import java.util.Date;
 import java.util.List;
 
 @Component
-public class zhihuScheduling {
+public class ZhihuScheduling {
     @Autowired
     private SimpleDateFormat time;
     private static final String WXID = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f0474735-939d-4c44-9a78-8234b7abebe6";
-    private static final Logger logger = LoggerFactory.getLogger(zhihuScheduling.class);
+    private static final Logger logger = LoggerFactory.getLogger(ZhihuScheduling.class);
     @Scheduled(fixedDelay = 60000*60*12) //每12小时执行一次
     public void scheduledTaskByFixedDelay() {
         logger.info("定时任务开始 ByFixedDelay：" + time.format(new Date()));
