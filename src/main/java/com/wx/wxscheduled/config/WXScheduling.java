@@ -35,7 +35,7 @@ public class WXScheduling {
     private SimpleDateFormat time;
     private static final String WXID = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f0474735-939d-4c44-9a78-8234b7abebe6";
     private static final Logger logger = LoggerFactory.getLogger(WXScheduling.class);
-    @Scheduled(fixedDelay = 10000) //每10秒执行一次
+    @Scheduled(fixedDelay = 60000*60*12) //每12小时执行一次
     public void scheduledTaskByFixedDelay() {
         logger.info("定时任务开始 ByFixedDelay：" + time.format(new Date()));
         scheduledTask();
@@ -44,8 +44,7 @@ public class WXScheduling {
     /*
     定时拿取接口数据
      */
-    @Test
-    public void scheduledTask() {
+    private void scheduledTask() {
         try {
             String baiduUrl = "https://api.map.baidu.com/weather/v1/?district_id=360111&data_type=all&ak=QLVCURfTor6cr3IekRiK7ebaqLjnqvYN";
             StringBuffer stringBuffer = new StringBuffer();
